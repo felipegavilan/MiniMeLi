@@ -1,0 +1,25 @@
+# Visual Studio / Directorios temporales
+.vs/
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+
+# Archivos de usuario y caché locales
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.opensdf
+*.sdf
+
+# Carpetas de compilación y respaldos específicos de MAUI / .NET
+[Tt]est[Rr]esults/
+[Bb]uild/
+[Ll]og/
+[Ll]ogs/
+
+# Archivos de empaquetado móvil temporales
+*.apk
+*.aab
+*.ipa

@@ -1,3 +1,5 @@
 <Solution>
-  <Project Path="MiniMeLi/MiniMeLi.csproj" />
+  <Project Path="MiniMeLi/MiniMeLi.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
 </Solution>
