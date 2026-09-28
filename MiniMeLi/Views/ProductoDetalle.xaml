@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiniMeLi.Views.ProductoDetalle"
+             Title="ProductoDetalle">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Tarjeta principal contenedora con sombra y bordes redondeados -->
+            <Border StrokeThickness="0" 
+                    StrokeShape="RoundRectangle 16"
+                    BackgroundColor="White"
+                    Padding="20">
+
+                <Border.Shadow>
+                    <Shadow Brush="Black" Offset="0,4" Radius="10" Opacity="0.15"/>
+                </Border.Shadow>
+
+                <VerticalStackLayout Spacing="12">
+                    <Image Source="{Binding ImagenUrl}" 
+                           HeightRequest="220" 
+                           Aspect="AspectFit" 
+                           HorizontalOptions="Center" />
+                    <Label Text="{Binding Titulo}" 
+                           FontSize="22" 
+                           FontAttributes="Bold" 
+                           TextColor="#333333" />
+                    <Label Text="{Binding Precio, StringFormat='${0}'}" 
+                           FontSize="20" 
+                           FontAttributes="Bold" 
+                           TextColor="#00A650" />
+                    <BoxView HeightRequest="1" Color="#E0E0E0" Margin="0,5" />
+                    <Label Text="{Binding Descripcion}" 
+                           FontSize="14" 
+                           TextColor="#666666" 
+                           LineHeight="1.2" />
+                    <HorizontalStackLayout Spacing="8" VerticalOptions="Center" HorizontalOptions="End" Margin="0,10,0,0">
+                        <Label Text="Stock disponible:" 
+                               FontSize="14" 
+                               TextColor="#555555" 
+                               VerticalTextAlignment="Center" />
+                        <Label Text="{Binding Stock}" 
+                               FontSize="14" 
+                               FontAttributes="Bold" 
+                               TextColor="#333333" 
+                               VerticalTextAlignment="Center" />
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+            </Border>
+            <Button Text="Comprar ahora"
+                    Clicked="OnAlertButtonClicked"
+                    BackgroundColor="#3483FA" 
+                    TextColor="White" 
+                    FontAttributes="Bold"
+                    CornerRadius="8"
+                    HeightRequest="50"
+                    Margin="0,10,0,0" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -10,7 +10,7 @@
             Spacing="20"
             Background="#faf4e5">
             <SearchBar Placeholder="Buscar productos..." Text="{Binding SearchText }"/>
-            <CollectionView ItemsSource="{Binding Productos}" SelectionMode="Single" SelectedItem="{Binding ProductoSeleccionado}">
+            <CollectionView ItemsSource="{Binding Productos}">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" Span="2"/>
                 </CollectionView.ItemsLayout>
@@ -20,7 +20,10 @@
                             <Border.Shadow>
                                 <Shadow Brush="Black" Offset="0,2" Radius="4" Opacity="0.05"/>
                             </Border.Shadow>
-
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnProductoSeleccionado" 
+                                          CommandParameter="{Binding .}" />
+                            </Border.GestureRecognizers>
                             <VerticalStackLayout Spacing="5">
                                 <Image Source="{Binding ImagenUrl}" Aspect="AspectFill" HeightRequest="120"/>
                                 <Label Text="{Binding Titulo}" FontAttributes="Bold" FontSize="Medium"/>
