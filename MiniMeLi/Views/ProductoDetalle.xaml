@@ -5,8 +5,6 @@
              Title="ProductoDetalle">
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
-
-            <!-- Tarjeta principal contenedora con sombra y bordes redondeados -->
             <Border StrokeThickness="0" 
                     StrokeShape="RoundRectangle 16"
                     BackgroundColor="White"

@@ -44,7 +44,43 @@ namespace MiniMeLi.Services
                     Descripcion = "Diseño cómodo para largas horas de uso en la computadora.",
                     ImagenUrl = "dotnet_bot.png",
                     Stock = 15
-                }
+                },
+                new Producto
+                {
+                    Id = 5,
+                    Titulo = "Mouse Ergonómico Inalámbrico",
+                    Precio = 32000m,
+                    Descripcion = "Diseño cómodo para largas horas de uso en la computadora.",
+                    ImagenUrl = "dotnet_bot.png",
+                    Stock = 15
+                },
+                new Producto
+                {
+                    Id = 6,
+                    Titulo = "Mouse Ergonómico Inalámbrico",
+                    Precio = 32000m,
+                    Descripcion = "Diseño cómodo para largas horas de uso en la computadora.",
+                    ImagenUrl = "dotnet_bot.png",
+                    Stock = 15
+                },
+                new Producto
+                {
+                    Id = 7,
+                    Titulo = "Mouse Ergonómico Inalámbrico",
+                    Precio = 32000m,
+                    Descripcion = "Diseño cómodo para largas horas de uso en la computadora.",
+                    ImagenUrl = "dotnet_bot.png",
+                    Stock = 15
+                },
+                new Producto
+                {
+                    Id = 8,
+                    Titulo = "Mouse Ergonómico Inalámbrico",
+                    Precio = 32000m,
+                    Descripcion = "Diseño cómodo para largas horas de uso en la computadora.",
+                    ImagenUrl = "dotnet_bot.png",
+                    Stock = 15
+                },
             };
         }
     }

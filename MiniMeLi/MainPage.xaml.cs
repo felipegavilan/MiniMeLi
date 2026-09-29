@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using MiniMeLi.Services;
 using MiniMeLi.Views;
-using Android.Provider;
 
 
 namespace MiniMeLi
