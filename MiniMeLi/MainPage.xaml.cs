@@ -10,26 +10,6 @@ namespace MiniMeLi
     {
         public ObservableCollection<Producto> Productos { get; set; } = new ObservableCollection<Producto>(ProductoService.ObtenerProductosPrueba());
 
-        //private Producto? _productoSeleccionado;
-        //public Producto? ProductoSeleccionado
-        //{
-        //    get => _productoSeleccionado;
-        //    set
-        //    {
-        //        if (_productoSeleccionado != value)
-        //        {
-        //            _productoSeleccionado = value;
-        //            OnPropertyChanged();
-
-        //            if (_productoSeleccionado != null)
-        //            {
-        //                MostrarDetalleProducto(_productoSeleccionado);
-
-        //            }
-        //        }
-        //    }
-        //}
-
         private async void OnProductoSeleccionado(object sender, TappedEventArgs e)
         {
             //obtenemos el producto que viene en el parametro del toque
@@ -47,13 +27,6 @@ namespace MiniMeLi
 
             // Vinculamos el contexto para que la vista encuentre la propiedad Productos
             BindingContext = this;
-        }
-
-        private async void MostrarDetalleProducto(Producto producto)
-        {
-            //await DisplayAlertAsync("Producto Seleccionado", $"Tocaste: {producto.Titulo} - ${producto.Precio}", "OK");
-            await Navigation.PushAsync(new ProductoDetalle(producto));
-        }
-       
+        }       
     }
 }

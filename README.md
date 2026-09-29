@@ -10,12 +10,20 @@ Aplicación móvil desarrollada como proyecto académico para la Tecnicatura de 
 - **Gestión de Tareas:** Trello
 
 ## 👥 Equipo de Desarrollo
-- Felipe Gavilan
+- Felipe Gavilán
 - Eduardo Chavéz
 - Nadia Villagra
+- Daniel Leguizamón
 
 
 ## ⚙️ Cómo ejecutar el proyecto localmente
 1. Clonar el repositorio:
    ```bash
-   git clone [https://github.com/felipegavilan/MiniMeLi.git](https://github.com/felipegavilan/MiniMeLi.git)
+   git clone https://github.com/felipegavilan/MiniMeLi.git
+   ```
+2. Abrir la solución (MiniMeLi.slnx)
+
+3. Restaurar paquetes
+
+4. Elegir destino de ejecución (emulador Android)
+   

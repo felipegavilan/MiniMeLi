@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace MiniMeLi
+﻿namespace MiniMeLi
 {
     public partial class App : Application
     {

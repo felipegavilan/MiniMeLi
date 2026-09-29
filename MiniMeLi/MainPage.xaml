@@ -26,7 +26,7 @@
                             </Border.GestureRecognizers>
                             <VerticalStackLayout Spacing="5">
                                 <Image Source="{Binding ImagenUrl}" Aspect="AspectFill" HeightRequest="120"/>
-                                <Label Text="{Binding Titulo}" FontAttributes="Bold" FontSize="Medium"/>
+                                <Label Text="{Binding Titulo}" FontAttributes="Bold" FontSize="16"/>
                                 <Label Text="{Binding Precio, StringFormat='${0}'}" TextColor="Green"/>
                             </VerticalStackLayout>
                         </Border>
