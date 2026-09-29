@@ -10,7 +10,7 @@ public partial class ProductoDetalle : ContentPage
         BindingContext = producto;
     }
 
-    private async void OnAlertButtonClicked(object sender, EventArgs e)
+    private async void OnAlertButtonClicked(object? sender, EventArgs e)
     {
         var producto = BindingContext as Producto;
         if (producto != null)
