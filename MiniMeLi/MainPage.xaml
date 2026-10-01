@@ -8,7 +8,7 @@
         <VerticalStackLayout
             Padding="20,10"
             Spacing="20"
-            Background="#faf4e5">
+            Background="{StaticResource Background}">
             <SearchBar Placeholder="Buscar productos..." Text="{Binding SearchText }"/>
             <CollectionView ItemsSource="{Binding Productos}">
                 <CollectionView.ItemsLayout>
@@ -26,8 +26,8 @@
                             </Border.GestureRecognizers>
                             <VerticalStackLayout Spacing="5">
                                 <Image Source="{Binding ImagenUrl}" Aspect="AspectFill" HeightRequest="120"/>
-                                <Label Text="{Binding Titulo}" FontAttributes="Bold" FontSize="16"/>
-                                <Label Text="{Binding Precio, StringFormat='${0}'}" TextColor="Green"/>
+                                <Label Text="{Binding Titulo}" TextColor="#3b0c2c" FontAttributes="Bold" FontSize="16"/>
+                                <Label Text="{Binding Precio, StringFormat='${0}'}" FontAttributes="Bold" TextColor="{StaticResource Verde}" />
                             </VerticalStackLayout>
                         </Border>
                     </DataTemplate>
