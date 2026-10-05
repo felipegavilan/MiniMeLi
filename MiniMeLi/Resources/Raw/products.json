@@ -1,30 +1,50 @@
 ﻿[
   {
     "Id": 1,
-    "Nombre": "Auriculares Inalámbricos Bluetooth",
+    "Titulo": "Auriculares Inalámbricos Bluetooth",
     "Precio": 28500.00,
     "Descripcion": "Auriculares over-ear con cancelación de ruido y 30 horas de batería.",
-    "ImagenUrl": "auriculares.png"
+    "ImagenUrl": "auriculares.png",
+    "Stock": 12
   },
   {
     "Id": 2,
-    "Nombre": "Teclado Mecánico RGB Redragon",
-    "Precio": 45200.50,
-    "Descripcion": "Teclado mecánico gamer con switches red y retroiluminación personalizable.",
-    "ImagenUrl": "teclado.png"
+    "Titulo": "Smartwatch Deportivo Pro",
+    "Precio": 45900.50,
+    "Descripcion": "Reloj inteligente con monitor de ritmo cardíaco, GPS y resistencia al agua.",
+    "ImagenUrl": "smartwatch.png",
+    "Stock": 5
   },
   {
     "Id": 3,
-    "Nombre": "Mouse Inalámbrico Ergonómico",
-    "Precio": 18900.00,
-    "Descripcion": "Mouse óptico con diseño ergonómico y receptor USB de alta velocidad.",
-    "ImagenUrl": "mouse.png"
+    "Titulo": "Teclado Mecánico Gamer RGB",
+    "Precio": 34200.00,
+    "Descripcion": "Teclado mecánico con switches red, iluminación RGB personalizable y estructura de aluminio.",
+    "ImagenUrl": "teclado.png",
+    "Stock": 1
   },
   {
     "Id": 4,
-    "Nombre": "Soporte Ajustable para Notebook",
-    "Precio": 22000.00,
-    "Descripcion": "Soporte de aluminio plegable, ideal para mejorar la postura al trabajar.",
-    "ImagenUrl": "soporte.png"
+    "Titulo": "Mouse Inalámbrico Ergonómico",
+    "Precio": 15400.00,
+    "Descripcion": "Mouse óptico de alta precisión con diseño ergonómico y batería recargable.",
+    "ImagenUrl": "mouse.png",
+    "Stock": 20
+  },
+  {
+    "Id": 5,
+    "Titulo": "Parlante Portátil Waterproof",
+    "Precio": 22100.00,
+    "Descripcion": "Parlante bluetooth compacto con sonido estéreo de alta fidelidad y protección IP67.",
+    "ImagenUrl": "parlante.png",
+    "Stock": 8
+  },
+  {
+    "Id": 6,
+    "Titulo": "Soporte Ajustable para Notebook",
+    "Precio": 12800.00,
+    "Descripcion": "Base elevadora de aluminio plegable, ideal برای mejorar la postura y la ventilación.",
+    "ImagenUrl": "soporte.png",
+    "Stock": 3
   }
 ]
