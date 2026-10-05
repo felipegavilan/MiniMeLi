@@ -14,6 +14,8 @@
     <Color x:Key="Background">#faf4e5</Color>
     <Color x:Key="Texto">#3b0c2c</Color>
     <Color x:Key="acento">#ff6a00</Color>
+    <Color x:Key="BackgroundCard">White</Color>
+    <Color x:Key="StrokeColor">#E1E1E1</Color>
 
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
