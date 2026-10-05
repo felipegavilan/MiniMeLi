@@ -4,7 +4,7 @@
     "Titulo": "Auriculares Inalámbricos Bluetooth",
     "Precio": 28500.00,
     "Descripcion": "Auriculares over-ear con cancelación de ruido y 30 horas de batería.",
-    "ImagenUrl": "auriculares.png",
+    "ImagenUrl": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500",
     "Stock": 12
   },
   {
@@ -12,7 +12,7 @@
     "Titulo": "Smartwatch Deportivo Pro",
     "Precio": 45900.50,
     "Descripcion": "Reloj inteligente con monitor de ritmo cardíaco, GPS y resistencia al agua.",
-    "ImagenUrl": "smartwatch.png",
+    "ImagenUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500",
     "Stock": 5
   },
   {
@@ -20,7 +20,7 @@
     "Titulo": "Teclado Mecánico Gamer RGB",
     "Precio": 34200.00,
     "Descripcion": "Teclado mecánico con switches red, iluminación RGB personalizable y estructura de aluminio.",
-    "ImagenUrl": "teclado.png",
+    "ImagenUrl": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500",
     "Stock": 1
   },
   {
@@ -28,7 +28,7 @@
     "Titulo": "Mouse Inalámbrico Ergonómico",
     "Precio": 15400.00,
     "Descripcion": "Mouse óptico de alta precisión con diseño ergonómico y batería recargable.",
-    "ImagenUrl": "mouse.png",
+    "ImagenUrl": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500",
     "Stock": 20
   },
   {
@@ -36,7 +36,7 @@
     "Titulo": "Parlante Portátil Waterproof",
     "Precio": 22100.00,
     "Descripcion": "Parlante bluetooth compacto con sonido estéreo de alta fidelidad y protección IP67.",
-    "ImagenUrl": "parlante.png",
+    "ImagenUrl": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=500",
     "Stock": 8
   },
   {
@@ -44,7 +44,39 @@
     "Titulo": "Soporte Ajustable para Notebook",
     "Precio": 12800.00,
     "Descripcion": "Base elevadora de aluminio plegable, ideal برای mejorar la postura y la ventilación.",
-    "ImagenUrl": "soporte.png",
+    "ImagenUrl": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500",
     "Stock": 3
+  },
+  {
+    "Id": 7,
+    "Titulo": "Cámara Web Full HD 1080p",
+    "Precio": 19500.00,
+    "Descripcion": "Cámara web con micrófono incorporado, ideal para videollamadas y streaming.",
+    "ImagenUrl": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500",
+    "Stock": 15
+  },
+  {
+    "Id": 8,
+    "Titulo": "Disco Sólido SSD 480GB",
+    "Precio": 31000.00,
+    "Descripcion": "Disco de estado sólido SATA III de alta velocidad para mejorar el rendimiento del equipo.",
+    "ImagenUrl": "https://images.unsplash.com/photo-1531492392397-909772184d0b?w=500",
+    "Stock": 7
+  },
+  {
+    "Id": 9,
+    "Titulo": "Mochila Antirrobo para Notebook",
+    "Precio": 25400.00,
+    "Descripcion": "Mochila impermeable con puerto de carga USB y compartimento acolchado.",
+    "ImagenUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500",
+    "Stock": 10
+  },
+  {
+    "Id": 10,
+    "Titulo": "Lámpara de Escritorio LED con Carga Inalámbrica",
+    "Precio": 16900.00,
+    "Descripcion": "Lámpara moderna con niveles de intensidad regulables y base para cargar el celular.",
+    "ImagenUrl": "https://images.unsplash.com/photo-1534349762230-e8cadfec3afc?w=500",
+    "Stock": 4
   }
 ]
