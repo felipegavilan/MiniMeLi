@@ -8,7 +8,8 @@ namespace MiniMeLi
 {
     public partial class MainPage : ContentPage
     {
-        public ObservableCollection<Producto> Productos { get; set; } = new ObservableCollection<Producto>(ProductoService.ObtenerProductosPrueba());
+
+        public ObservableCollection<Producto> Productos { get; set; } = new();
 
         private async void OnProductoSeleccionado(object sender, TappedEventArgs e)
         {
@@ -21,12 +22,19 @@ namespace MiniMeLi
         public MainPage()
         {
             InitializeComponent();
-
-            // Inicializar la colección de productos con datos de prueba del servicio
-            Productos = new ObservableCollection<Producto>(ProductoService.ObtenerProductosPrueba());
-
             // Vinculamos el contexto para que la vista encuentre la propiedad Productos
             BindingContext = this;
-        }       
+        }
+        
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            var lista = await ProductoService.ObtenerProductosAsync();
+            Productos.Clear();
+            foreach (var producto in lista)
+            {
+                Productos.Add(producto);
+            }
+        }
     }
 }
