@@ -19,7 +19,7 @@ namespace MiniMeLi
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            if (_viewModel.Productos.Count > 0) return;
+            if (_viewModel.HayProductosCargados) return;
             await _viewModel.CargarProductosAsync();
         }
 
