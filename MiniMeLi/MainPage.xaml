@@ -4,35 +4,33 @@
              xmlns:Models="clr-namespace:MiniMeLi.Models"
              x:Class="MiniMeLi.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="20,10"
-            Spacing="20"
-            Background="{StaticResource Background}">
-            <SearchBar Placeholder="Buscar productos..." Text="{Binding SearchText }"/>
-            <CollectionView ItemsSource="{Binding Productos}">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" Span="2"/>
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Border Margin="5" Padding="10" StrokeShape="RoundRectangle 10" Stroke="White" BackgroundColor="White">
-                            <Border.Shadow>
-                                <Shadow Brush="Black" Offset="0,2" Radius="4" Opacity="0.05"/>
-                            </Border.Shadow>
-                            <Border.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnProductoSeleccionado" 
+    <Grid RowDefinitions="auto, *" 
+          Padding="20,10"
+          RowSpacing="20"
+          Background="{StaticResource Background}">
+        <SearchBar Placeholder="Buscar productos..." Text="{Binding SearchText }" Grid.Row="0"/>
+        <CollectionView ItemsSource="{Binding Productos}" Grid.Row="1">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="5" Padding="10" StrokeShape="RoundRectangle 10" Stroke="{StaticResource StrokeColor}" BackgroundColor="{StaticResource BackgroundCard}">
+                        <Border.Shadow>
+                            <Shadow Brush="Black" Offset="0,2" Radius="4" Opacity="0.05"/>
+                        </Border.Shadow>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnProductoSeleccionado" 
                                           CommandParameter="{Binding .}" />
-                            </Border.GestureRecognizers>
-                            <VerticalStackLayout Spacing="5">
-                                <Image Source="{Binding ImagenUrl}" Aspect="AspectFill" HeightRequest="120"/>
-                                <Label Text="{Binding Titulo}" TextColor="#3b0c2c" FontAttributes="Bold" FontSize="16"/>
-                                <Label Text="{Binding Precio, StringFormat='${0}'}" FontAttributes="Bold" TextColor="{StaticResource Verde}" />
-                            </VerticalStackLayout>
-                        </Border>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </VerticalStackLayout>
-    </ScrollView>
+                        </Border.GestureRecognizers>
+                        <VerticalStackLayout Spacing="5">
+                            <Image Source="{Binding ImagenUrl}" Aspect="AspectFill" HeightRequest="120"/>
+                            <Label Text="{Binding Titulo}" TextColor="{StaticResource Morado}" FontAttributes="Bold" FontSize="16"/>
+                            <Label Text="{Binding Precio, StringFormat='${0}'}" FontAttributes="Bold" TextColor="{StaticResource Verde}" />
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>
