@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using MiniMeLi.Models;
 using MiniMeLi.Services;
+using CommunityToolkit.Mvvm.Input;
 
 namespace MiniMeLi.ViewModels;
 
@@ -10,6 +11,12 @@ public partial class CarritoViewModel : ObservableObject
     public ObservableCollection<Producto> Items => CarritoService.Items;
     public decimal Total => CarritoService.Total;
     public int Cantidad => CarritoService.Cantidad;
+
+    [RelayCommand]
+    private void Quitar(Producto producto)
+    {
+        CarritoService.RemoverProducto(producto);
+    }
 
     public CarritoViewModel()
     {
