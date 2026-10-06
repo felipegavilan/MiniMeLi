@@ -1,6 +1,7 @@
 namespace MiniMeLi.Views;
 
 using MiniMeLi.Models;
+using MiniMeLi.Services;
 
 public partial class ProductoDetalle : ContentPage
 {
@@ -10,12 +11,13 @@ public partial class ProductoDetalle : ContentPage
         BindingContext = producto;
     }
 
-    private async void OnAlertButtonClicked(object? sender, EventArgs e)
+    private async void OnComprarClicked(object? sender, EventArgs e)
     {
         var producto = BindingContext as Producto;
         if (producto != null)
         {
-            await DisplayAlertAsync("Agregado a tu Carrito de Compras", $"Tocaste: {producto.Titulo} - ${producto.Precio}", "OK");
+            CarritoService.AgregarProducto(producto);
+            await DisplayAlertAsync("Carrito", $"{producto.Titulo} se agregó al carrito", "OK");
         }
     }
 
