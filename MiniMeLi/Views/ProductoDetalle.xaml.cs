@@ -20,5 +20,4 @@ public partial class ProductoDetalle : ContentPage
             await DisplayAlertAsync("Carrito", $"{producto.Titulo} se agregó al carrito", "OK");
         }
     }
-
 }

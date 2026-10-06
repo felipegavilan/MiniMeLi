@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Models="clr-namespace:MiniMeLi.Models"
              x:Class="MiniMeLi.MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Carrito" IconImageSource="shoppingcart.png" Clicked="OnCarritoClicked" />
+    </ContentPage.ToolbarItems>
 
     <Grid RowDefinitions="auto, *" 
           Padding="20,10"
@@ -26,7 +29,7 @@
                         <VerticalStackLayout Spacing="5">
                             <Image Source="{Binding ImagenUrl}" Aspect="AspectFill" HeightRequest="120"/>
                             <Label Text="{Binding Titulo}" TextColor="{StaticResource Morado}" FontAttributes="Bold" FontSize="16"/>
-                            <Label Text="{Binding Precio, StringFormat='${0}'}" FontAttributes="Bold" TextColor="{StaticResource Verde}" />
+                            <Label Text="{Binding Precio, StringFormat='{0:c}'}" FontAttributes="Bold" TextColor="{StaticResource Verde}" />
                         </VerticalStackLayout>
                     </Border>
                 </DataTemplate>

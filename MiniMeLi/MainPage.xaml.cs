@@ -31,5 +31,9 @@ namespace MiniMeLi
 
             await Navigation.PushAsync(new ProductoDetalle(productoSeleccionado));
         }
+        private async void OnCarritoClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CarritoPage());
+        }
     }
 }
