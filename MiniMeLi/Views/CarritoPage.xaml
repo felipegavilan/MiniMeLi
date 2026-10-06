@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MiniMeLi.ViewModels"
              x:Class="MiniMeLi.Views.CarritoPage"
              Title="Mi Carrito"
              BackgroundColor="{StaticResource Background}">
@@ -19,7 +20,7 @@
                     <Border Margin="0,5" Padding="10"
                         StrokeShape="RoundRectangle 10"
                         BackgroundColor="{StaticResource White}">
-                        <Grid ColumnDefinitions="80,*" ColumnSpacing="10">
+                        <Grid ColumnDefinitions="80,*,40" ColumnSpacing="10">
                             <Image Source="{Binding ImagenUrl}"
                                Aspect="AspectFill"
                                HeightRequest="80" />
@@ -29,6 +30,15 @@
                                 <Label Text="{Binding Precio, StringFormat='{0:c}'}"
                                    FontAttributes="Bold" />
                             </VerticalStackLayout>
+                            <Button Grid.Column="2"
+                                    ImageSource="contenedor_basura.png"
+                                    VerticalOptions="Center"
+                                    Padding="5"
+                                    MinimumHeightRequest="40"
+                                    BackgroundColor="{StaticResource acento}"
+                                    CornerRadius="10"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:CarritoViewModel}}, Path=QuitarCommand}"
+                                    CommandParameter="{Binding .}" />
                         </Grid>
                     </Border>
                 </DataTemplate>
