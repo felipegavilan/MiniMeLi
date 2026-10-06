@@ -22,7 +22,7 @@
                     <Label Text="{Binding Titulo}" 
                            FontSize="22" 
                            FontAttributes="Bold"/>
-                    <Label Text="{Binding Precio, StringFormat='${0}'}" 
+                    <Label Text="{Binding Precio, StringFormat='{0:c} ARS'}" 
                            FontSize="20" 
                            FontAttributes="Bold"
                            TextColor="{StaticResource Verde}"/>
