@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MiniMeLi.Views.ProductoDetalle"
-             Title="ProductoDetalle">
+             Title="Detalle del Producto">
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
             <Border StrokeThickness="0" 
@@ -43,7 +43,7 @@
                 </VerticalStackLayout>
             </Border>
             <Button Text="Comprar ahora"
-                    Clicked="OnAlertButtonClicked"
+                    Clicked="OnComprarClicked"
                     FontAttributes="Bold"
                     CornerRadius="8"
                     HeightRequest="50"
