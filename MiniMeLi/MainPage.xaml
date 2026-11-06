@@ -1,39 +1,119 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:Models="clr-namespace:MiniMeLi.Models"
-             x:Class="MiniMeLi.MainPage">
+             xmlns:models="clr-namespace:MiniMeLi.Models"
+             x:Class="MiniMeLi.MainPage"
+             Title="Productos"
+             BackgroundColor="{StaticResource Background}">
+
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Carrito" IconImageSource="shoppingcart.png" Clicked="OnCarritoClicked" />
+        <ToolbarItem Text="Carrito"
+                     IconImageSource="shoppingcart.png"
+                     Clicked="OnCarritoClicked" />
     </ContentPage.ToolbarItems>
 
-    <Grid RowDefinitions="auto, *" 
-          Padding="20,10"
-          RowSpacing="20"
-          Background="{StaticResource Background}">
-        <SearchBar Placeholder="Buscar productos..." Text="{Binding SearchText }" Grid.Row="0"/>
-        <CollectionView ItemsSource="{Binding Productos}" Grid.Row="1">
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" Span="2"/>
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Border Margin="5" Padding="10" StrokeShape="RoundRectangle 10" Stroke="{StaticResource StrokeColor}" BackgroundColor="{StaticResource BackgroundCard}">
-                        <Border.Shadow>
-                            <Shadow Brush="Black" Offset="0,2" Radius="4" Opacity="0.05"/>
-                        </Border.Shadow>
-                        <Border.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnProductoSeleccionado" 
-                                          CommandParameter="{Binding .}" />
-                        </Border.GestureRecognizers>
-                        <VerticalStackLayout Spacing="5">
-                            <Image Source="{Binding ImagenUrl}" Aspect="AspectFill" HeightRequest="120"/>
-                            <Label Text="{Binding Titulo}" TextColor="{StaticResource Morado}" FontAttributes="Bold" FontSize="16"/>
-                            <Label Text="{Binding Precio, StringFormat='{0:c}'}" FontAttributes="Bold" TextColor="{StaticResource Verde}" />
-                        </VerticalStackLayout>
-                    </Border>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+    <Grid RowDefinitions="Auto,Auto,*"
+          Padding="16,10"
+          RowSpacing="8">
+
+        <!-- Fila 0: buscador -->
+        <SearchBar Grid.Row="0"
+                   Placeholder="Buscar productos..."
+                   Text="{Binding SearchText}" />
+
+        <!-- Fila 1: indicador de carga y mensaje de estado -->
+        <VerticalStackLayout Grid.Row="1"
+                         IsVisible="{Binding IsLoading}"
+                         BackgroundColor="{StaticResource Background}"
+                         VerticalOptions="Fill"
+                         HorizontalOptions="Fill"
+                         Spacing="12">
+            <ActivityIndicator IsRunning="{Binding IsLoading}"
+                           WidthRequest="40"
+                           HeightRequest="40"
+                           VerticalOptions="Center"
+                           Margin="0,120,0,0" />
+            <Label Text="Cargando productos..."
+               HorizontalOptions="Center"
+               TextColor="Gray" />
+        </VerticalStackLayout>
+
+        <!-- Fila 2: lista de productos -->
+        <RefreshView x:Name="refreshView"
+                     Grid.Row="2"
+                     Refreshing="OnRefreshing">
+
+            <CollectionView ItemsSource="{Binding Productos}"
+                            SelectionMode="None">
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     Span="2"
+                                     HorizontalItemSpacing="10"
+                                     VerticalItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Producto">
+                        <Border Padding="10"
+                                StrokeShape="RoundRectangle 12"
+                                Stroke="{StaticResource StrokeColor}"
+                                BackgroundColor="{StaticResource BackgroundCard}">
+
+                            <Border.Shadow>
+                                <Shadow Brush="Black"
+                                        Offset="0,2"
+                                        Radius="4"
+                                        Opacity="0.05" />
+                            </Border.Shadow>
+
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnProductoSeleccionado"
+                                                      CommandParameter="{Binding .}" />
+                            </Border.GestureRecognizers>
+
+                            <VerticalStackLayout Spacing="4">
+
+                                <Image Source="{Binding ImagenUrl}"
+                                       HeightRequest="110"
+                                       HorizontalOptions="Fill"
+                                       Aspect="AspectFit" />
+
+                                <Label Text="{Binding Descripcion}"
+                                       FontSize="14"
+                                       FontAttributes="Bold"
+                                       MaxLines="2"
+                                       LineBreakMode="TailTruncation" />
+
+                                <Label Text="{Binding Marca}"
+                                       FontSize="12"
+                                       TextColor="Gray"
+                                       MaxLines="1"
+                                       LineBreakMode="TailTruncation" />
+
+                                <Label Text="{Binding OCategoria.Descripcion, StringFormat='Categoría: {0}'}"
+                                       FontSize="11"
+                                       TextColor="Gray"
+                                       MaxLines="1"
+                                       LineBreakMode="TailTruncation" />
+
+                                <Label Text="{Binding Precio, StringFormat='${0:N2}'}"
+                                       FontSize="17"
+                                       FontAttributes="Bold"
+                                       TextColor="Green" />
+
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+                <CollectionView.EmptyView>
+                    <Label Text="No hay productos para mostrar"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           TextColor="Gray" />
+                </CollectionView.EmptyView>
+            </CollectionView>
+        </RefreshView>
     </Grid>
 </ContentPage>

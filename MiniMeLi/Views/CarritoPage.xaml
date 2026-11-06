@@ -6,7 +6,7 @@
              Title="Mi Carrito"
              BackgroundColor="{StaticResource Background}">
 
-    <Grid RowDefinitions="*, auto">
+    <Grid RowDefinitions="*, auto" Padding="12">
         <CollectionView ItemsSource="{Binding Items}" Margin="20,10" Grid.Row="0">
 
             <CollectionView.EmptyView>
@@ -26,7 +26,7 @@
                                HeightRequest="80" />
                             <VerticalStackLayout Grid.Column="1" Spacing="5"
                                              VerticalOptions="Center">
-                                <Label Text="{Binding Titulo}" FontAttributes="Bold" />
+                                <Label Text="{Binding Descripcion}" FontAttributes="Bold" />
                                 <Label Text="{Binding Precio, StringFormat='{0:c}'}"
                                    FontAttributes="Bold" />
                             </VerticalStackLayout>

@@ -19,7 +19,7 @@
                            HeightRequest="220" 
                            Aspect="AspectFit" 
                            HorizontalOptions="Center" />
-                    <Label Text="{Binding Titulo}" 
+                    <Label Text="{Binding Marca}" 
                            FontSize="22" 
                            FontAttributes="Bold"/>
                     <Label Text="{Binding Precio, StringFormat='{0:c} ARS'}" 
@@ -34,7 +34,7 @@
                         <Label Text="Stock disponible:" 
                                FontSize="14" 
                                VerticalTextAlignment="Center" />
-                        <Label Text="{Binding Stock}" 
+                        <Label Text="{Binding oCategoria.Descripcion}" 
                                FontSize="14" 
                                FontAttributes="Bold"
                                VerticalTextAlignment="Center" />
