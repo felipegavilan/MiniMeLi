@@ -17,7 +17,7 @@ public partial class ProductoDetalle : ContentPage
         if (producto != null)
         {
             CarritoService.AgregarProducto(producto);
-            await DisplayAlertAsync("Carrito", $"{producto.Titulo} se agregó al carrito", "OK");
+            await DisplayAlertAsync("Carrito", $"{producto.Descripcion} se agregó al carrito", "OK");
         }
     }
 }

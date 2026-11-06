@@ -8,7 +8,8 @@ namespace MiniMeLi
     public partial class MainPage : ContentPage
     {
         private readonly MainViewModel _viewModel = new();
-        
+
+
         public MainPage()
         {
             InitializeComponent();
@@ -23,7 +24,13 @@ namespace MiniMeLi
             await _viewModel.CargarProductosAsync();
         }
 
-        private async void OnProductoSeleccionado(object sender, TappedEventArgs e)
+        private async void OnRefreshing(object? sender, EventArgs e)
+        {
+            await _viewModel.CargarProductosAsync();
+            refreshView.IsRefreshing = false;
+        }
+
+        private async void OnProductoSeleccionado(object? sender, TappedEventArgs e)
         {
             //obtenemos el producto que viene en el parametro del toque
             var productoSeleccionado = e.Parameter as Producto;
@@ -31,7 +38,7 @@ namespace MiniMeLi
 
             await Navigation.PushAsync(new ProductoDetalle(productoSeleccionado));
         }
-        private async void OnCarritoClicked(object sender, EventArgs e)
+        private async void OnCarritoClicked(object? sender, EventArgs e)
         {
             await Navigation.PushAsync(new CarritoPage());
         }

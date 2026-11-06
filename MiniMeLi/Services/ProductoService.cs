@@ -1,23 +1,30 @@
 using MiniMeLi.Models;
-using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace MiniMeLi.Services
 {
-    public static class ProductoService
+    public class ProductoService
     {
-     public static async Task<List<Producto>> ObtenerProductosAsync()
+        private readonly HttpClient _httpClient = new HttpClient();
+
+    public async Task<List<Producto>> ObtenerProductosAsync()
+    {
+        try
         {
-            // abrimos el archivo empaquetado en la app
-            using var stream = await FileSystem.OpenAppPackageFileAsync("products.json");
-
-            // convertimos a texto
-            using var reader = new StreamReader(stream);
-            string json = await reader.ReadToEndAsync();
-
-            //convertimos el texto en objeto
-            var opciones = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-            return JsonSerializer.Deserialize<List<Producto>>(json, opciones) ?? new List<Producto>();
-
+            var response = await _httpClient.GetAsync("http://apidispomovil.somee.com/api/producto/lista");
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+                var resultado = JsonConvert.DeserializeObject<RespuestaProductos>(jsonResponse);
+                return resultado?.Response ?? new List<Producto>();
+            }
+            return new List<Producto>();
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error fetching products: {ex.Message}");
+            return new List<Producto>();
         }
     }
+}
 }

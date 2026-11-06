@@ -30,22 +30,36 @@ public partial class MainViewModel : ObservableObject
     //El guard de OnAppearing mira la lista completa, no la filtrada.
     public bool HayProductosCargados => _todosLosProductos.Count > 0;
 
+    private readonly ProductoService _productoService = new();
+
+    [ObservableProperty]
+    private bool _isLoading;
+
+
     public async Task CargarProductosAsync()
     {
-        _todosLosProductos = await ProductoService.ObtenerProductosAsync();
-        AplicarFiltro();
+        IsLoading = _todosLosProductos.Count == 0;
+        try
+        {
+            _todosLosProductos = await _productoService.ObtenerProductosAsync();
+            AplicarFiltro();
+        }
+        finally
+        {
+            IsLoading = false;
+        }
 
     }
     
 
     private void AplicarFiltro()
     {
-        var texto = _searchText?.Trim();
+        var texto = SearchText?.Trim();
 
         //si no hay texto, se muestra la lista completa. Si hay, se filtra por titulo.
         IEnumerable<Producto> resultado = string.IsNullOrEmpty(texto)
             ? _todosLosProductos
-            : _todosLosProductos.Where(p => p.Titulo?.Contains(texto, StringComparison.OrdinalIgnoreCase) == true);
+            : _todosLosProductos.Where(p => p.Descripcion?.Contains(texto, StringComparison.OrdinalIgnoreCase) == true);
 
         //Actualizamos la lista de productos que se muestra en pantalla.
         Productos.Clear();

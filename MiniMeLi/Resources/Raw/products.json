@@ -52,7 +52,7 @@
     "Titulo": "Cámara Web Full HD 1080p",
     "Precio": 19500.00,
     "Descripcion": "Cámara web con micrófono incorporado, ideal para videollamadas y streaming.",
-    "ImagenUrl": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500",
+    "ImagenUrl": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTSvgxe-qv_NNczmGuMqwGGOnmdLsCuljNU4rvIQj05Z4ws34db3LiYRQWuaTSIalL7HrN_R93z6EeSmDkjvsz3KPASuqRKuPyvoOkMYQLnElO3__1YbIRwhSoyIcY5-Q&usqp=CAc",
     "Stock": 15
   },
   {
@@ -60,7 +60,7 @@
     "Titulo": "Disco Sólido SSD 480GB",
     "Precio": 31000.00,
     "Descripcion": "Disco de estado sólido SATA III de alta velocidad para mejorar el rendimiento del equipo.",
-    "ImagenUrl": "https://images.unsplash.com/photo-1531492392397-909772184d0b?w=500",
+    "ImagenUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5u5-qatuYyyZ1mZcUH9GvUSEXUgGedQ_rMJrA-aMmSA&s=10",
     "Stock": 7
   },
   {
@@ -76,7 +76,7 @@
     "Titulo": "Lámpara de Escritorio LED con Carga Inalámbrica",
     "Precio": 16900.00,
     "Descripcion": "Lámpara moderna con niveles de intensidad regulables y base para cargar el celular.",
-    "ImagenUrl": "https://images.unsplash.com/photo-1534349762230-e8cadfec3afc?w=500",
+    "ImagenUrl": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRHN1GvN94z8gn21Q3dru-rnPz6hI9F9aWri_TxeAgQMaWvVtpoJkwBVznNL1hFlB6t-PWukQdjGNjK64X5kEm26R4r121ZFw&usqp=CAc",
     "Stock": 4
   }
 ]
