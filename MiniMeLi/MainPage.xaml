@@ -38,6 +38,18 @@
                TextColor="Gray" />
         </VerticalStackLayout>
 
+        <VerticalStackLayout Grid.Row="1"
+                     IsVisible="{Binding HayError}"
+                     Spacing="10"
+                     Margin="0,60,0,0">
+            <Label Text="{Binding ErrorMessage}"
+           HorizontalTextAlignment="Center"
+           TextColor="{StaticResource acento}" />
+            <Button Text="Reintentar"
+            HorizontalOptions="Center"
+            Clicked="OnReintentarClicked" />
+        </VerticalStackLayout>
+
         <!-- Fila 2: lista de productos -->
         <RefreshView x:Name="refreshView"
                      Grid.Row="2"
