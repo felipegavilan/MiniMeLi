@@ -35,22 +35,34 @@ public partial class MainViewModel : ObservableObject
     [ObservableProperty]
     private bool _isLoading;
 
+    [ObservableProperty]
+    private bool _hayError;
+
+    [ObservableProperty]
+    private string _errorMessage = string.Empty;
+
 
     public async Task CargarProductosAsync()
     {
+        HayError = false;
         IsLoading = _todosLosProductos.Count == 0;
         try
         {
             _todosLosProductos = await _productoService.ObtenerProductosAsync();
             AplicarFiltro();
         }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"Error al cargar productos: {ex.Message}");
+            ErrorMessage = "No pudimos cargar los productos. Revisá tu conexión e intentá de nuevo.";
+            HayError = true;
+        }
         finally
         {
             IsLoading = false;
         }
-
     }
-    
+
 
     private void AplicarFiltro()
     {

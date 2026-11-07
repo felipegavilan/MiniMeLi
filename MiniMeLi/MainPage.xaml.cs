@@ -42,5 +42,9 @@ namespace MiniMeLi
         {
             await Navigation.PushAsync(new CarritoPage());
         }
+        private async void OnReintentarClicked(object? sender, EventArgs e)
+        {
+            await _viewModel.CargarProductosAsync();
+        }
     }
 }
