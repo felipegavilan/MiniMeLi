@@ -2,6 +2,6 @@
 {
     public static class AppConfig
     {
-        public const string ApiBaseUrl = "http://apidispomovil.somee.com/api/";
+        public const string ApiBaseUrl = "https://apidispomovil.somee.com/api/";
     }
 }

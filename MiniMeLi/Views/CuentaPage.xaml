@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiniMeLi.Views.CuentaPage"
+             Title="Mi cuenta"
+             BackgroundColor="{StaticResource Background}">
+
+    <VerticalStackLayout Padding="24" Spacing="14">
+
+        <Border StrokeShape="RoundRectangle 10" Padding="16"
+                Stroke="{StaticResource StrokeColor}"
+                BackgroundColor="{StaticResource White}">
+            <VerticalStackLayout Spacing="6">
+                <Label Text="{Binding Nombre, StringFormat='¡Hola, {0}!'}"
+                       FontSize="22" FontAttributes="Bold"
+                       TextColor="{StaticResource Texto}" />
+                <Label Text="{Binding Email}" TextColor="Gray" />
+            </VerticalStackLayout>
+        </Border>
+
+        <Button Text="Cerrar sesión"
+                Command="{Binding CerrarSesionCommand}"
+                BackgroundColor="{StaticResource acento}"
+                TextColor="White" />
+    </VerticalStackLayout>
+</ContentPage>
