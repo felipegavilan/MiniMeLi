@@ -10,7 +10,11 @@
         <ToolbarItem Text="Carrito"
                      IconImageSource="shoppingcart.png"
                      Clicked="OnCarritoClicked" />
+        <ToolbarItem Text="Cuenta"
+             IconImageSource="usuario.png"
+             Clicked="OnCuentaClicked" />
     </ContentPage.ToolbarItems>
+    
 
     <Grid RowDefinitions="Auto,Auto,*"
           Padding="16,10"

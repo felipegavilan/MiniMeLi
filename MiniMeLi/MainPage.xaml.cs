@@ -1,7 +1,7 @@
 ﻿using MiniMeLi.Models;
 using MiniMeLi.Views;
 using MiniMeLi.ViewModels;
-
+using MiniMeLi.Services;
 
 namespace MiniMeLi
 {
@@ -41,6 +41,14 @@ namespace MiniMeLi
         private async void OnCarritoClicked(object? sender, EventArgs e)
         {
             await Navigation.PushAsync(new CarritoPage());
+        }
+        private async void OnCuentaClicked(object? sender, EventArgs e)
+        {
+            await AuthService.InicializarAsync();
+            if (AuthService.EstaLogueado)
+                await Navigation.PushAsync(new CuentaPage());
+            else
+                await Navigation.PushAsync(new LoginPage());
         }
         private async void OnReintentarClicked(object? sender, EventArgs e)
         {

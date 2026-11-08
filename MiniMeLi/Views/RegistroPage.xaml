@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiniMeLi.Views.RegistroPage"
+             Title="Crear cuenta"
+             BackgroundColor="{StaticResource Background}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="12">
+
+            <Label Text="Creá tu cuenta"
+                   FontSize="24" FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="{StaticResource Texto}" />
+
+            <Border StrokeShape="RoundRectangle 10" Padding="12,0"
+                    Stroke="{StaticResource StrokeColor}"
+                    BackgroundColor="{StaticResource White}">
+                <Entry Placeholder="Nombre" MaxLength="50" Text="{Binding Nombre}" />
+            </Border>
+
+            <Border StrokeShape="RoundRectangle 10" Padding="12,0"
+                    Stroke="{StaticResource StrokeColor}"
+                    BackgroundColor="{StaticResource White}">
+                <Entry Placeholder="Email" Keyboard="Email" MaxLength="100" Text="{Binding Email}" />
+            </Border>
+
+            <Border StrokeShape="RoundRectangle 10" Padding="12,0"
+                    Stroke="{StaticResource StrokeColor}"
+                    BackgroundColor="{StaticResource White}">
+                <Entry Placeholder="Teléfono (opcional)" Keyboard="Telephone" MaxLength="20" Text="{Binding Telefono}" />
+            </Border>
+
+            <Border StrokeShape="RoundRectangle 10" Padding="12,0"
+                    Stroke="{StaticResource StrokeColor}"
+                    BackgroundColor="{StaticResource White}">
+                <Entry Placeholder="Contraseña (mínimo 6 caracteres)" IsPassword="True" Text="{Binding Password}" />
+            </Border>
+
+            <Border StrokeShape="RoundRectangle 10" Padding="12,0"
+                    Stroke="{StaticResource StrokeColor}"
+                    BackgroundColor="{StaticResource White}">
+                <Entry Placeholder="Repetir contraseña" IsPassword="True"
+                       Text="{Binding ConfirmarPassword}"
+                       ReturnCommand="{Binding RegistrarseCommand}" />
+            </Border>
+
+            <Label Text="{Binding MensajeError}"
+                   IsVisible="{Binding HayError}"
+                   TextColor="{StaticResource acento}"
+                   HorizontalTextAlignment="Center" />
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+
+            <Button Text="Registrarme" Command="{Binding RegistrarseCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
