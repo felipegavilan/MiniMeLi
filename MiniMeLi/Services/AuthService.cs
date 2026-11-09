@@ -149,7 +149,7 @@ public static class AuthService
         }
     }
 
-    private static string? LeerMensaje(string json)
+    public static string? LeerMensaje(string json)
     {
         try
         {

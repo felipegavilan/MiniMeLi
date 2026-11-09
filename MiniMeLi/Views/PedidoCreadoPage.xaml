@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MiniMeLi.Views.PedidoCreadoPage"
+             Title="Pedido creado"
+             BackgroundColor="{StaticResource Background}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="14">
+
+            <Label Text="{Binding Titulo}"
+                   FontSize="24" FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="{StaticResource Texto}" />
+
+            <Border StrokeShape="RoundRectangle 10" Padding="16"
+                    Stroke="{StaticResource StrokeColor}"
+                    BackgroundColor="{StaticResource White}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Total a pagar" TextColor="Gray" />
+                    <Label Text="{Binding Total, StringFormat='{0:c}'}"
+                           FontSize="26" FontAttributes="Bold"
+                           TextColor="{StaticResource Verde}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Label HorizontalTextAlignment="Center" TextColor="{StaticResource Texto}">
+                <Label.Text>Tu pedido quedó registrado como pendiente. Para confirmarlo, transferí el total al siguiente alias y enviá el comprobante por WhatsApp. El comercio lo confirmará cuando verifique el pago.</Label.Text>
+            </Label>
+
+            <Border StrokeShape="RoundRectangle 10" Padding="16"
+                    Stroke="{StaticResource StrokeColor}"
+                    BackgroundColor="{StaticResource White}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Alias para transferir" TextColor="Gray" />
+                    <Label Text="{Binding AliasPago}" FontSize="20" FontAttributes="Bold" />
+                    <Button Text="Copiar alias" Command="{Binding CopiarAliasCommand}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Enviar comprobante por WhatsApp"
+                    Command="{Binding EnviarWhatsAppCommand}" />
+
+            <Button Text="Volver al catálogo"
+                    Command="{Binding VolverAlCatalogoCommand}"
+                    BackgroundColor="Transparent"
+                    BorderWidth="1"
+                    BorderColor="{StaticResource Texto}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
