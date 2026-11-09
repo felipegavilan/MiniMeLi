@@ -13,11 +13,23 @@ public partial class ProductoDetalle : ContentPage
 
     private async void OnComprarClicked(object? sender, EventArgs e)
     {
-        var producto = BindingContext as Producto;
-        if (producto != null)
+        if (BindingContext is not Producto producto) return;
+
+        if (producto.SinStock)
         {
-            CarritoService.AgregarProducto(producto);
-            await DisplayAlertAsync("Carrito", $"{producto.Descripcion} se agregó al carrito", "OK");
+            await DisplayAlertAsync("Sin stock", "Este producto no está disponible por el momento.", "OK");
+            return;
         }
+
+        // No se puede pedir más de lo que hay
+        if (CarritoService.CantidadDe(producto.IdProd) >= producto.Stock)
+        {
+            await DisplayAlertAsync("Stock máximo",
+                $"Ya tenés en el carrito todas las unidades disponibles ({producto.Stock}).", "OK");
+            return;
+        }
+
+        CarritoService.AgregarProducto(producto);
+        await DisplayAlertAsync("Carrito", $"{producto.Descripcion} se agregó al carrito", "OK");
     }
 }
