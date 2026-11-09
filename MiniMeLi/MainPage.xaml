@@ -83,6 +83,12 @@
                                         Opacity="0.05" />
                             </Border.Shadow>
 
+                            <Border.Triggers>
+                                <DataTrigger TargetType="Border" Binding="{Binding SinStock}" Value="True">
+                                    <Setter Property="Opacity" Value="0.55" />
+                                </DataTrigger>
+                            </Border.Triggers>
+
                             <Border.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnProductoSeleccionado"
                                                       CommandParameter="{Binding .}" />
@@ -117,6 +123,11 @@
                                        FontSize="17"
                                        FontAttributes="Bold"
                                        TextColor="Green" />
+                                <Label Text="{Binding TextoStock}"
+                                       IsVisible="{Binding MostrarAvisoStock}"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource acento}" />       
 
                             </VerticalStackLayout>
                         </Border>

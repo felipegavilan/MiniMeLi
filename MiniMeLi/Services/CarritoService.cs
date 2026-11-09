@@ -44,6 +44,12 @@ public static class CarritoService
         Guardar();
     }
 
+    public static int CantidadDe(int idProd)
+    {
+        Cargar();
+        return Items.FirstOrDefault(i => i.Producto.IdProd == idProd)?.Cantidad ?? 0;
+    }
+
     public static void Aumentar(CartItem item)
     {
         item.Cantidad++;
