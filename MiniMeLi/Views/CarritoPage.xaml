@@ -73,11 +73,17 @@
                 <Label Text="{Binding Total, StringFormat='{0:c} ARS'}" FontAttributes="Bold" TextColor="{StaticResource Verde}" />
             </HorizontalStackLayout>
 
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+
+            <Button Text="Finalizar compra"
+            IsVisible="{Binding HayItems}"
+            Command="{Binding FinalizarCompraCommand}" />
+
             <Button Text="Vaciar carrito"
-                    IsVisible="{Binding HayItems}"
-                    Command="{Binding VaciarCommand}"
-                    BackgroundColor="{StaticResource acento}"
-                    TextColor="White" />
+            IsVisible="{Binding HayItems}"
+            Command="{Binding VaciarCommand}"
+            BackgroundColor="{StaticResource acento}"
+            TextColor="White" />
         </VerticalStackLayout>
     </Grid>
 </ContentPage>

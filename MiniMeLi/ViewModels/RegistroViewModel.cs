@@ -74,6 +74,6 @@ public partial class RegistroViewModel : ObservableObject
             return;
         }
         // El registro ya deja la sesión iniciada: volvemos al catálogo
-        await Shell.Current.Navigation.PopToRootAsync();
+        await NavegacionAuth.VolverAlOrigenAsync();
     }
 }

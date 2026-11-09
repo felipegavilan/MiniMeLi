@@ -41,7 +41,7 @@ public partial class LoginViewModel : ObservableObject
             MensajeError = mensaje;
             return;
         }
-        await Shell.Current.Navigation.PopToRootAsync();
+        await NavegacionAuth.VolverAlOrigenAsync();
     }
 
     [RelayCommand]
