@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MiniMeLi.ViewModels"
+             x:Class="MiniMeLi.Views.MisPedidosPage"
+             Title="Mis pedidos"
+             BackgroundColor="{StaticResource Background}">
+
+    <Grid>
+
+        <!-- Cargando -->
+        <ActivityIndicator IsRunning="{Binding IsLoading}"
+                           IsVisible="{Binding IsLoading}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+
+        <!-- Sin sesión -->
+        <VerticalStackLayout IsVisible="{Binding SinSesion}"
+                             VerticalOptions="Center" Padding="24" Spacing="12">
+            <Label Text="Iniciá sesión para ver tus pedidos"
+                   HorizontalTextAlignment="Center"
+                   TextColor="{StaticResource Texto}" />
+            <Button Text="Ingresar" Command="{Binding IrALoginCommand}" />
+        </VerticalStackLayout>
+
+        <!-- Error -->
+        <VerticalStackLayout IsVisible="{Binding HayError}"
+                             VerticalOptions="Center" Padding="24" Spacing="12">
+            <Label Text="{Binding MensajeError}"
+                   HorizontalTextAlignment="Center"
+                   TextColor="{StaticResource acento}" />
+            <Button Text="Reintentar" Command="{Binding ReintentarCommand}" />
+        </VerticalStackLayout>
+
+        <!-- Lista -->
+        <RefreshView IsVisible="{Binding MostrarLista}"
+                     IsRefreshing="{Binding IsRefreshing}"
+                     Command="{Binding RefrescarCommand}">
+            <CollectionView ItemsSource="{Binding Pedidos}" Margin="12,8">
+
+                <CollectionView.EmptyView>
+                    <Label Text="Todavía no hiciste ningún pedido"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Margin="0,60" />
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="0,6" Padding="14"
+                                StrokeShape="RoundRectangle 10"
+                                Stroke="{StaticResource StrokeColor}"
+                                BackgroundColor="{StaticResource White}">
+                            <VerticalStackLayout Spacing="8">
+
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Text="{Binding Titulo}" FontAttributes="Bold" FontSize="16" />
+                                    <Label Grid.Column="1"
+                                           Text="{Binding TextoEstado}"
+                                           TextColor="{Binding ColorEstado}"
+                                           FontAttributes="Bold" FontSize="13"
+                                           VerticalOptions="Center" />
+                                </Grid>
+
+                                <Label Text="{Binding FechaTexto}" FontSize="12" TextColor="Gray" />
+                                <Label Text="{Binding Detalle}" FontSize="13" />
+                                <Label Text="{Binding Total, StringFormat='Total: {0:c}'}"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource Verde}" />
+
+                                <Button Text="Enviar comprobante por WhatsApp"
+                                        IsVisible="{Binding EsPendiente}"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MisPedidosViewModel}}, Path=EnviarComprobanteCommand}"
+                                        CommandParameter="{Binding .}" />
+
+                                <Button Text="Cancelar pedido"
+                                        IsVisible="{Binding EsPendiente}"
+                                        BackgroundColor="{StaticResource acento}"
+                                        TextColor="White"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:MisPedidosViewModel}}, Path=CancelarCommand}"
+                                        CommandParameter="{Binding .}" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </Grid>
+</ContentPage>
