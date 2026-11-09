@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MiniMeLi.Services;
+using MiniMeLi.Views;
 
 namespace MiniMeLi.ViewModels;
 
@@ -17,5 +18,11 @@ public partial class CuentaViewModel : ObservableObject
 
         AuthService.CerrarSesion();
         await Shell.Current.Navigation.PopAsync();
+    }
+
+    [RelayCommand]
+    private async Task IrAMisPedidos()
+    {
+        await Shell.Current.Navigation.PushAsync(new MisPedidosPage());
     }
 }

@@ -18,6 +18,8 @@
             </VerticalStackLayout>
         </Border>
 
+        <Button Text="Mis pedidos" Command="{Binding IrAMisPedidosCommand}" />
+        
         <Button Text="Cerrar sesión"
                 Command="{Binding CerrarSesionCommand}"
                 BackgroundColor="{StaticResource acento}"

@@ -1,8 +1,8 @@
-﻿using System.Text;
-using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MiniMeLi.Models;
 using MiniMeLi.Services;
+using MiniMeLi.Views;
 
 namespace MiniMeLi.ViewModels;
 
@@ -32,32 +32,18 @@ public partial class PedidoCreadoViewModel : ObservableObject
     [RelayCommand]
     private async Task EnviarWhatsApp()
     {
-        var mensaje = new StringBuilder();
-        mensaje.AppendLine($"Hola, soy {AuthService.Nombre}. Hice el pedido #{_pedido.IdPedido} en {AppConfig.NombreComercio}:");
-        mensaje.AppendLine();
-        foreach (var linea in _lineas)
-            mensaje.AppendLine($"• {linea}");
-        mensaje.AppendLine();
-        mensaje.AppendLine($"Total: {_pedido.Total:C}");
-        mensaje.Append("Te envío el comprobante de pago.");
-
-        var numero = new string(AppConfig.WhatsAppComercio.Where(char.IsDigit).ToArray());
-        var url = $"https://wa.me/{numero}?text={Uri.EscapeDataString(mensaje.ToString())}";
-
-        try
-        {
-            await Launcher.Default.OpenAsync(new Uri(url));
-        }
-        catch (Exception)
-        {
-            await Shell.Current.DisplayAlertAsync("No se pudo abrir WhatsApp",
-                $"Escribile al comercio al {AppConfig.WhatsAppComercio} indicando tu número de pedido (#{_pedido.IdPedido}).", "OK");
-        }
+        await WhatsAppService.EnviarPedidoAsync(_pedido.IdPedido, _lineas, _pedido.Total);
     }
 
     [RelayCommand]
     private async Task VolverAlCatalogo()
     {
         await Shell.Current.Navigation.PopToRootAsync();
+    }
+
+    [RelayCommand]
+    private async Task VerMisPedidos()
+    {
+        await Shell.Current.Navigation.PushAsync(new MisPedidosPage());
     }
 }

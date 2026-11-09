@@ -41,6 +41,12 @@
             <Button Text="Enviar comprobante por WhatsApp"
                     Command="{Binding EnviarWhatsAppCommand}" />
 
+            <Button Text="Ver mis pedidos"
+                    Command="{Binding VerMisPedidosCommand}"
+                    BackgroundColor="Transparent"
+                    BorderWidth="1"
+                    BorderColor="{StaticResource Texto}" />
+
             <Button Text="Volver al catálogo"
                     Command="{Binding VolverAlCatalogoCommand}"
                     BackgroundColor="Transparent"
